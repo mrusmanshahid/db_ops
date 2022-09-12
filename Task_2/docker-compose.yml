@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  master:
+    build: ./master/
+    container_name: "master"
+    restart: always
+    environment:
+      - MYSQL_DATABASE=bolt
+      - MYSQL_ROOT_PASSWORD=${mysql_master_slave_password}
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./master/my.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./master/data:/var/lib/mysql
+
+  slave:
+    build: ./slave/
+    container_name: "slave"
+    restart: always
+    environment:
+      - MYSQL_DATABASE=${mysql_master_slave_password}
+      - MYSQL_ROOT_PASSWORD=${mysql_master_slave_password}
+    ports:
+      - '3307:3306'
+    volumes:
+      - ./slave/my.cnf:/etc/mysql/conf.d/mysql.conf.cnf
+      - ./slave/data:/var/lib/mysql
+      - ./slave/build_replication.sh:/etc/build_replication.sh
