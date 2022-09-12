@@ -1,6 +1,5 @@
 import logging
 import time
-import random
 from os import path
 import yaml
 from prometheus_client.core import GaugeMetricFamily, REGISTRY, Info
