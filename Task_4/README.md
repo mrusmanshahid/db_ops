@@ -19,9 +19,6 @@ Follow the following instruction:
 
 ## Outputs
 
-
-## Screenshots
-
 ![exporter](screenshots/exporter.png)
 
 ![exporter](screenshots/prometheus.png)
