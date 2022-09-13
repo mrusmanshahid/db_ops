@@ -23,3 +23,5 @@ Follow the following instruction:
 ## Screenshots
 
 ![exporter](screenshots/exporter.png)
+
+![exporter](screenshots/prometheus.png)
