@@ -1,0 +1,12 @@
+src_db_url: <db_url>
+src_db_username: <username>
+src_db_password: <pasword>
+src_schema: <schema>
+dest_db_url: <db_url>
+dest_db_username: <username>
+dest_db_password: <pasword>
+dest_schema: <schema>
+table_name: <table_name>
+batch_start: 0
+batch_end: 100
+batch_size: 15
