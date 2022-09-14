@@ -1,7 +1,7 @@
 # Migrate Data From Source to Target Without Locking
 
 ## Background
-The small shell script that migrates the data in user defined smaller chunks from source to master.
+The small scripts that migrates the data in user defined smaller chunks from source to master, both scripts have same purpose which is to split the the table between source and destination.
 ## How To Setup - Bash Script?
 Follow the instructions migrate data from source database to destination database:
 
