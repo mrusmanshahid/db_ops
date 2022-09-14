@@ -7,18 +7,18 @@ class SQL:
 
     def get_src_select_sql():
         sql =  """
-            SELECT * FROM """+config.table_name+""" WHERE id between %s and %s; 
+            SELECT * FROM """+config.table_name+""" WHERE a between %s and %s; 
         """
         return sql
 
     def get_src_delete_sql():
         sql =  """
-            DELETE FROM """+config.table_name+"""  WHERE id between %s and %s; 
+            DELETE FROM """+config.table_name+"""  WHERE a between %s and %s; 
         """
         return sql
 
     def get_dest_insert_sql():
         sql =  """
-            INSERT INTO """+config.table_name+"""  VALUES %s; 
+            INSERT INTO """+config.table_name+"""  VALUES (%s,%s,%s) ON DUPLICATE KEY UPDATE a=a;
         """
         return sql
