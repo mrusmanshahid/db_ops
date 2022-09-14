@@ -19,7 +19,8 @@ class Config:
         Config.dest_db_username = configurations.get("dest_db_username")
         Config.dest_db_password = configurations.get("dest_db_password")
         Config.dest_schema = configurations.get("dest_schema")
-
+        
+        Config.table_name = configurations.get("table_name")
         Config.batch_start = configurations.get("batch_start")
         Config.batch_end = configurations.get("batch_end")
         Config.batch_size = configurations.get("batch_size")

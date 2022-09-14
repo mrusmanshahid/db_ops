@@ -25,10 +25,10 @@ class MigrateData:
     def prepare_sql_statements(self, statement, start, end, temp_end):
         prepared_sql_statements = []
         while temp_end < end:
-            stmt = statement % (start_date, temp_end)
+            stmt = statement % (start, temp_end)
             prepared_sql_statements.append(stmt)
-            start_date = temp_date
-            temp_date = start_date + conf.batch_size
+            start = temp_end + 1
+            temp_end = start + conf.batch_size - 1
         stmt = statement % (start, end)
         prepared_sql_statements.append(stmt)
         return prepared_sql_statements
@@ -46,12 +46,13 @@ class MigrateData:
             return cursor.execute(statement)
 
     def insert_into_target(self, data):
-        logging.info(f'Migrating {len(data)} records to the destination database')
-        statement = sql.get_dest_insert_sql()
-        con = self.get_connection(conf.dest_db_url, conf.dest_db_username, conf.dest_db_password, conf.dest_schema)
-        with con.cursor() as cursor:
-            cursor.executemany(statement, data)
-            cursor.close()
+        if data:
+            logging.info(f'Migrating {len(data)} records to the destination database')
+            statement = sql.get_dest_insert_sql()
+            con = self.get_connection(conf.dest_db_url, conf.dest_db_username, conf.dest_db_password, conf.dest_schema)
+            with con.cursor() as cursor:
+                cursor.executemany(statement, data)
+                cursor.close()
     
     def migrate_to_destination(self):
         statement = sql.get_src_select_sql()
