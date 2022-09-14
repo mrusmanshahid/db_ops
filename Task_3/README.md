@@ -21,7 +21,7 @@ Follow the instructions migrate data from source database to destination databas
 
 The configuration file contains the configurations to migrate/split the data between source and target table.
 
-The configuration file `yaml` should look like this:
+Set the configuration file path in  `env_variables.py` and the configuration file `yaml` should look like this:
 
 ```yaml
 src_db_url: <source database endpoint>
@@ -42,3 +42,6 @@ batch_size: <no of records in each transaction>
 ```
 
 `python main.py`
+
+## Limitation
+The batch preparation column should be integer and indexed to avoid performance issues.
