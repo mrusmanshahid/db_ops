@@ -41,7 +41,9 @@ batch_end: <end id for migration>
 batch_size: <no of records in each transaction>
 ```
 
-`python main.py`
+If needed, update `sql.py` with your desired sql configurations; 
+
+Run `python3 main.py`
 
 ## Limitation
-The batch preparation column should be integer and indexed to avoid performance issues.
+Since the batches are being prepared using integer ranges so make sure to have integer column to filter records and have an indexed to avoid performance issues.
