@@ -1,7 +1,7 @@
 # Database Scripts
 
 ## Background
-The project is focused on small tasks arround multiple daily challenges for any DBA.
+The project is focused on small tasks arround multiple daily challenges for any database engineer.
 ## List of Scripts
 
 - [Bash script to extend linux partition after every reboot](https://github.com/mrusmanshahid/db_ops/tree/main/resize-partition#bash-script-to-extend-the-linux-partition)
